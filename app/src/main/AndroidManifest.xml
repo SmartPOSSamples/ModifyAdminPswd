@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cloudpos.pwd"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.ADMIN_PWD_MODIFY" />
+    <uses-permission android:name="android.permission.ADMIN_PWD" />
+    <uses-permission android:name="android.permission.ADMIN_PWD_RESET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/display_128"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar">
+
+        <meta-data android:name="cloudpos_activity_auto_start" android:value="com.cloudpos.pwd.MainActivity" />
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.AUTO_START" />
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            </intent-filter>
+        </activity>
+        <service android:name=".PasswordService" android:enabled="true" android:exported="false"/>
+
+    </application>
+
+</manifest>
